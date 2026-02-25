@@ -2,6 +2,8 @@ let express = require('express');
 
 let app=express();
 
+app.use("/", express.static("./public"));
+
 const cool = require('./cool/cool.js');
 const PORT = 3000;
 
