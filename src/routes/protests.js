@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const fileReader = require('../../data/readFile.js');
+const fileReader = require('../../utils/readFile.js');
 
 let data = [];
 

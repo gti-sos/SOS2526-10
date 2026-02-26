@@ -4,10 +4,10 @@ const app = express();
 app.use(express.json());
 app.use("/", express.static("./public"));
 
-const cool = require('./cool/cool.js');
-const indexSMJ = require('./samples/index-SMJ.js');
-const indexOMV = require('./samples/index-OMV.js');
-const indexAGC = require('./samples/index-AGC.js');
+const cool = require('./src/cool/cool.js');
+const indexSMJ = require('./src/samples/index-SMJ.js');
+const indexOMV = require('./src/samples/index-OMV.js');
+const indexAGC = require('./src/samples/index-AGC.js');
 
 const BASE_API_URL = '/api/v1';
 const PORT = process.env.PORT || 3000;
