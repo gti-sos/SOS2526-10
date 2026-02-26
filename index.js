@@ -28,7 +28,7 @@ app.get('/samples/MRJ', (req, res) => {
 })
 
 app.get('/samples/AGC', (req, res) => {
-  res.send(indexAGC.calculateAverage('belgium', 'rabies'));
+  res.send(indexAGC.calculateAverageAGC('belgium', 'rabies'));
 })
 
 let deathByRiskFactor = [];
