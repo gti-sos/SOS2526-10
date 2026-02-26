@@ -1,5 +1,6 @@
 const xlsx = require('xlsx');
 
+// Reads an Excel file and returns its content as JSON
 function readFile(fileName) {
     let workbook = xlsx.readFile('data/datasets/' + fileName);
     let sheetName = workbook.SheetNames[0];

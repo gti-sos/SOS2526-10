@@ -1,21 +1,13 @@
 const xlsx = require('xlsx');
 
-// Leer el fichero
+// Read the file and select the corresponding sheet
 const workbook = xlsx.readFile('data/SOS2526-10-Propuesta.xlsx');
-
-// Seleccionar hoja (puedes cambiar el índice si lo necesitas)
 const sheetName = workbook.SheetNames[1];
 const sheet = workbook.Sheets[sheetName];
 
-// Convertir a JSON
 const data = xlsx.utils.sheet_to_json(sheet);
 
-/**
- * Calcula la media de un campo numérico para un país concreto
- * @param {string} country - País a filtrar
- * @param {string} field - Campo numérico del que calcular la media
- * @returns {number} Media calculada
- */
+// Calculates the average of a field for a given country
 function getAverage(country, field) {
     const values = data
         .filter(row => row.country.toLowerCase() === country.toLowerCase())
@@ -27,12 +19,7 @@ function getAverage(country, field) {
     return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
 
-/**
- * Devuelve el resultado en formato HTML
- * @param {string} country 
- * @param {string} field 
- * @returns {string} HTML con el resultado
- */
+// Returns an HTML string with the average of a field for a given country
 function calculateAverage(country, field) {
     const average = getAverage(country, field);
 
