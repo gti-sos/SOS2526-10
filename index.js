@@ -23,7 +23,7 @@ app.get('/samples/SMJ', (req, res) => {
 })
 
 app.get('/samples/MRJ', (req, res) => {
-  res.send(indexMRJ.calculateAverage('afghanistan', 'hdi_score'));
+  res.send(indexMRJ.calculateAverage('canada', 'hdi_score'));
 })
 
 let deathByRiskFactor = [];
@@ -47,7 +47,7 @@ app.get('/protests', (req, res) => {
 
 app.get('/protests/loadInitialData', (req, res) => {
   if (protests.length === 0) {
-    protests = fileReader.readFile('number-of-protests.csv')
+    protests = fileReader.readFile('protests.csv')
       .slice(0, 10);
   }
   res.json(protests);
