@@ -2,17 +2,17 @@ const express = require('express');
 const router = express.Router();
 const fileReader = require('../../utils/readFile.js');
 
-let data = [];
+const store = require('../data/store.js');
 
 router.get('/pandemics', (req, res) => {
-  res.json(data);
+  res.json(store.pandemics);
 });
 
 router.get('/pandemics/loadInitialData', (req, res) => {
-  if (data.length === 0) {
-    data = fileReader.readFile('pandemics.csv').slice(0, 10);
+  if (store.pandemics.length === 0) {
+    store.pandemics = fileReader.readFile('pandemics.csv').slice(0, 10);
   }
-  res.json(data);
+  res.json(store.pandemics);
 });
 
 module.exports = router;
