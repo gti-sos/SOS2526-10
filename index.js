@@ -29,6 +29,7 @@ app.get('/samples/MRJ', (req, res) => {
 let deathByRiskFactor = [];
 let protests = [];
 
+// =============================== Factores de riesgo ===============================
 app.get('/deaths-by-risk-factors', (req, res) => {
   res.json(deathByRiskFactor);
 });
@@ -40,7 +41,10 @@ app.get('/deaths-by-risk-factors/loadInitialData', (req, res) => {
   }
   res.json(deathByRiskFactor);
 });
+// =============================== Factores de riesgo ===============================
 
+
+// =============================== Protestas ===============================
 app.get('/protests', (req, res) => {
   res.json(protests);
 });
@@ -52,6 +56,8 @@ app.get('/protests/loadInitialData', (req, res) => {
   }
   res.json(protests);
 });
+// =============================== Protestas ===============================
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
