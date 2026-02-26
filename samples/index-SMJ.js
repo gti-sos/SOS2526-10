@@ -25,7 +25,7 @@ function getAverage(entity, field) {
   return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
 
-function calculateAverageSMJ(entity, field) {
+function calculateAverage(entity, field) {
     const average = getAverage(entity, field);
     return `<html><body><h1>
         Average ${field} for ${entity}: ${average}
@@ -33,5 +33,5 @@ function calculateAverageSMJ(entity, field) {
 }
 
 module.exports = {
-    calculateAverageSMJ
+    calculateAverage
 };
