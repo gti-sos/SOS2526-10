@@ -4,6 +4,7 @@ import protestsRoute from './src/routes/protests.js';
 import pandemicsRoute from './src/routes/pandemics.js';
 import childMalnutritions from "./src/routes/child-malnutritions.js";
 
+
 const app = express();
 
 app.use(express.json());
@@ -12,7 +13,7 @@ app.use("/", express.static("./public"));
 app.use((req, res, next) => {
   if (req.method === "POST" || req.method === "PUT") {
     if (req.get("Content-Type") && !req.is("application/json")) {
-      return res.status(415).send("Unsupported Media Type: Only JSON allowed");
+      return res.status(415).send("Only JSON allowed");
     }
   }
   next();
@@ -25,19 +26,6 @@ app.use(BASE_API_URL, deathsRoute);
 app.use(BASE_API_URL, protestsRoute);
 app.use(BASE_API_URL, pandemicsRoute);
 app.use(BASE_API_URL, childMalnutritions);
-
-/* ROUTE SAMPLE F04 */
-
-app.get("/samples/rm",(req,res)=>{
-
-const data = [13.2,12.9,12.3];
-const avg = data.reduce((a,b)=>a+b,0)/data.length;
-
-
-res.send("Average stunting rate: "+avg.toFixed(1));
-
-});
-
-/* START SERVER */
+app.use("/api/v2", childMalnutritions);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

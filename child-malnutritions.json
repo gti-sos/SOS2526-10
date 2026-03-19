@@ -1,0 +1,177 @@
+{
+  "info": {
+    "name": "child-malnutritions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+
+    {
+      "name": "DELETE ALL",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/api/v1/child-malnutritions"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(200);"]
+        }
+      }]
+    },
+
+    {
+      "name": "LOAD INITIAL DATA",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/v1/child-malnutritions/loadInitialData"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(201);"]
+        }
+      }]
+    },
+
+    {
+      "name": "GET ALL",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/v1/child-malnutritions"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(200);"]
+        }
+      }]
+    },
+
+    {
+      "name": "POST",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"country\": \"Japan\",\n  \"year\": 2020,\n  \"region\": \"Asia\",\n  \"stunting_rate\": 7.1\n}"
+        },
+        "url": "http://localhost:3000/api/v1/child-malnutritions"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(201);"]
+        }
+      }]
+    },
+
+    {
+      "name": "POST DUPLICATE",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"country\": \"Japan\",\n  \"year\": 2020,\n  \"region\": \"Asia\",\n  \"stunting_rate\": 7.1\n}"
+        },
+        "url": "http://localhost:3000/api/v1/child-malnutritions"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(409);"]
+        }
+      }]
+    },
+
+    {
+      "name": "GET SINGLE",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/v1/child-malnutritions/Japan/2020"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(200);"]
+        }
+      }]
+    },
+
+    {
+      "name": "PUT",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"country\": \"Japan\",\n  \"year\": 2020,\n  \"region\": \"Asia\",\n  \"stunting_rate\": 9.9\n}"
+        },
+        "url": "http://localhost:3000/api/v1/child-malnutritions/Japan/2020"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(200);"]
+        }
+      }]
+    },
+
+    {
+      "name": "PUT ERROR",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"country\": \"Japan\",\n  \"year\": 2021,\n  \"region\": \"Asia\",\n  \"stunting_rate\": 9.9\n}"
+        },
+        "url": "http://localhost:3000/api/v1/child-malnutritions/Japan/2020"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(400);"]
+        }
+      }]
+    },
+
+    {
+      "name": "DELETE ONE",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:3000/api/v1/child-malnutritions/Japan/2020"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(200);"]
+        }
+      }]
+    },
+
+    {
+      "name": "GET NOT FOUND",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/api/v1/child-malnutritions/Japan/2020"
+      },
+      "event": [{
+        "listen": "test",
+        "script": {
+          "exec": ["pm.response.to.have.status(404);"]
+        }
+      }]
+    }
+
+  ]
+}

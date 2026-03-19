@@ -16,27 +16,27 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-
     "newman-local-SMJ": "npx newman run test/api/SMJ/test-SMJ.json -e test/enviroments/local-env.json",
     "test-local-SMJ": "start-server-and-test start http://localhost:3000 newman-local-SMJ",
     "newman-render-SMJ": "npx newman run test/api/SMJ/test-SMJ.json -e test/enviroments/render-env.json",
     "test-deaths-by-risk-factors": "npm run test-local-SMJ",
-
     "newman-local-OMV": "npx newman run test/api/OMV/test-OMV.json -e test/enviroments/local-env.json",
     "test-local-OMV": "start-server-and-test start http://localhost:3000 newman-local-OMV",
     "newman-render-OMV": "npx newman run test/api/OMV/test-OMV.json -e test/enviroments/render-env.json",
     "test-protests": "npm run test-local-OMV",
-
     "newman-local-AGC": "npx newman run test/api/AGC/test-AGC.json -e test/enviroments/local-env.json",
     "test-local-AGC": "start-server-and-test start http://localhost:3000 newman-local-AGC",
     "newman-render-AGC": "npx newman run test/api/AGC/test-AGC.json -e test/enviroments/render-env.json",
     "test-pandemics": "npm run test-local-AGC",
-    
-    "test": "start-server-and-test start http://localhost:3000 \"npm run newman-local-SMJ && npm run newman-local-OMV && npm run newman-local-AGC\""
+   "test": "start-server-and-test start http://localhost:3000 \"npm run newman-local-SMJ && npm run newman-local-OMV && npm run newman-local-AGC && npm run newman-local-CM\"",
+"newman-local-CM": "npx newman run child-malnutritions.json",
+"test-local-CM": "start-server-and-test start http://localhost:3000 newman-local-CM",
+"test-child-malnutritions": "npm run test-local-CM"
   },
   "dependencies": {
     "express": "^5.2.1",
     "nedb": "^1.8.0",
+    "nedb-promises": "^6.2.3",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
