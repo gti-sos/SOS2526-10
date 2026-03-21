@@ -28,12 +28,13 @@
     "test-local-AGC": "start-server-and-test start http://localhost:3000 newman-local-AGC",
     "newman-render-AGC": "npx newman run test/api/AGC/test-AGC.json -e test/enviroments/render-env.json",
     "test-pandemics": "npm run test-local-AGC",
-   "test": "start-server-and-test start http://localhost:3000 \"npm run newman-local-SMJ && npm run newman-local-OMV && npm run newman-local-AGC && npm run newman-local-CM\"",
-"newman-local-CM": "npx newman run child-malnutritions.json",
-"test-local-CM": "start-server-and-test start http://localhost:3000 newman-local-CM",
-"test-child-malnutritions": "npm run test-local-CM"
+    "test": "start-server-and-test start http://localhost:3000 \"npm run newman-local-SMJ && npm run newman-local-OMV && npm run newman-local-AGC && npm run newman-local-CM\"",
+    "newman-local-CM": "npx newman run test/api/CM/test-CM.json -e test/enviroments/local-env.json",
+    "test-local-CM": "start-server-and-test start http://localhost:3000 newman-local-CM",
+    "test-child-malnutritions": "npm run test-local-CM"
   },
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
     "nedb": "^1.8.0",
     "nedb-promises": "^6.2.3",

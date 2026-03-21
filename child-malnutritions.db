@@ -8,3 +8,18 @@
 {"country":"France","year":2020,"region":"Europe","stunting_rate":4.1,"_id":"gl4zft3rSPgDyzHi"}
 {"country":"Spain","year":2020,"region":"Europe","stunting_rate":5.2,"_id":"ioEcHDowFoSVsOd4"}
 {"country":"India","year":2020,"region":"Asia","stunting_rate":34.7,"_id":"sPr4mnCRi672i9j3"}
+{"country":"italia","year":2011,"region":"puglia","stunting_rate":21,"_id":"qoLkOco6bXqUYOOR"}
+{"$$deleted":true,"_id":"8UCA9FO8fwUxWpsR"}
+{"$$deleted":true,"_id":"9gHtD38X6teQdnRu"}
+{"$$deleted":true,"_id":"OyFDlkv1jXwrc7ck"}
+{"$$deleted":true,"_id":"Qug6ZtcI1iRdKNTZ"}
+{"$$deleted":true,"_id":"Umk4I9CJ7TYMVAGH"}
+{"$$deleted":true,"_id":"WFQsp3Z3XZ29sRVF"}
+{"$$deleted":true,"_id":"ZGtK64sKYMpx5IQH"}
+{"$$deleted":true,"_id":"gl4zft3rSPgDyzHi"}
+{"$$deleted":true,"_id":"ioEcHDowFoSVsOd4"}
+{"$$deleted":true,"_id":"qoLkOco6bXqUYOOR"}
+{"$$deleted":true,"_id":"sPr4mnCRi672i9j3"}
+{"country":"italia","year":2011,"region":"puglia","stunting_rate":21,"_id":"FLzWvgIzHbFJ7uOI"}
+{"country":"africa","year":2000,"region":"Nord Africa","stunting_rate":31,"_id":"klMczYU03rb4Jhen"}
+{"$$deleted":true,"_id":"klMczYU03rb4Jhen"}
