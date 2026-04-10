@@ -10,7 +10,10 @@
     const res = await fetch('/api/v1/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ usernameInput, passwordInput })
+      body: JSON.stringify({ 
+        username: usernameInput, 
+        password: passwordInput 
+      })
     });
 
     if (res.ok) {

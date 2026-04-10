@@ -9,6 +9,7 @@ export const username = writable(storedUser);
 export const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
+    
     isAuthenticated.set(false);
     username.set(null);
 };
