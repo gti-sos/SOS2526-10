@@ -46,9 +46,11 @@
     "test": "start-server-and-test start http://localhost:3000 \"npm run newman-local-SMJ && npm run newman-local-SMJ-v2 && npm run newman-local-OMV && npm run newman-local-OMV-v2 && npm run newman-local-AGC && npm run newman-local-AGC-v2 && npm run newman-local-RM\""
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "csv-parser": "^3.2.0",
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
     "nedb": "^1.8.0",
     "xlsx": "^0.18.5"
   },

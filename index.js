@@ -8,6 +8,8 @@ import pandemicsRoute from './src/back/routes/pandemics/pandemics.js';
 import pandemicsRouteV2 from './src/back/routes/pandemics/pandemics-v2.js'
 import childMalnutritions from "./src/back/routes/child-malnutritions/child-malnutritions.js";
 
+import authRoutes from './src/back/utils/auth/index.js';
+
 import { handler as svelteHandler } from './src/front/build/handler.js';
 
 const BASE_API_URL = '/api/v1';
@@ -26,6 +28,11 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+app.set('secretKey', 'tu_clave_secreta_aqui');
+
+app.use(BASE_API_URL, authRoutes);
+app.use(V2_API_URL, authRoutes);
 
 app.use(BASE_API_URL, deathsRoute);
 app.use(BASE_API_URL, protestsRoute);
