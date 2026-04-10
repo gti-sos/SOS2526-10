@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import DataStore from "nedb";
 import express from 'express';
 
-let userDb = new DataStore({filename: '../../../data/storage/users.db', autoload: true});
+let userDb = new DataStore({filename: '../../../data/users/users.db', autoload: true});
 const SECRET_KEY = "tu_clave_secreta_super_segura";
 
 const router = express.Router();
