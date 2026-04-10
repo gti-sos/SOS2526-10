@@ -11,6 +11,7 @@ import childMalnutritions from "./src/back/routes/child-malnutritions/child-maln
 import authRoutes from './src/back/utils/auth/index.js';
 
 import { handler as svelteHandler } from './src/front/build/handler.js';
+import { verifyToken } from './src/back/utils/auth/authMiddelware.js';
 
 const BASE_API_URL = '/api/v1';
 const V2_API_URL = '/api/v2';
@@ -28,6 +29,19 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+/*
+app.use((req, res, next) => {
+  const protectedMethods = ["POST", "PUT", "DELETE"];
+  if (protectedMethods.includes(req.method)){
+    if (req.path.includes('/login') || req.path.includes('/register'))
+      return next();
+    
+    return verifyToken(req, res, next);
+  }
+  next();
+});
+*/
 
 app.set('secretKey', 'tu_clave_secreta_aqui');
 
