@@ -3,12 +3,12 @@ import bcrypt from 'bcryptjs';
 import DataStore from "nedb";
 import express from 'express';
 
+import { SECRET_KEY } from './JWT_token.js';
+
 let userDb = new DataStore({
     filename: './data/users/users.db',
     autoload: true
 });
-
-const SECRET_KEY = "tu_clave_secreta_super_segura";
 
 const router = express.Router();
 
@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
 // Login
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
-    
+
     userDb.findOne({ username }, async (err, user) => {
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.status(401).send("Credenciales inválidas");

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const SECRET_KEY = "tu_clave_secreta_super_segura"; // En producción, usa variables de entorno
+import { SECRET_KEY } from './JWT_token.js';
 
 export const verifyToken = (req, res, next) => {
     const token = req.header('Authorization')?.split(' ')[1];

@@ -1,5 +1,7 @@
 import express from 'express';
-import cors from "cors"; 
+import cors from 'cors'; 
+import 'dotenv/config';
+
 import deathsRoute from './src/back/routes/deaths-by-risk-factors/deaths-by-risk-factors.js';
 import deathsRouteV2 from './src/back/routes/deaths-by-risk-factors/deaths-by-risk-factors-v2.js';
 import protestsRoute from './src/back/routes/protests/protests.js';
