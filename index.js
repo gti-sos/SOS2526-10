@@ -32,7 +32,6 @@ app.use((req, res, next) => {
   next();
 });
 
-/*
 app.use((req, res, next) => {
   const protectedMethods = ["POST", "PUT", "DELETE"];
   if (protectedMethods.includes(req.method)){
@@ -43,7 +42,6 @@ app.use((req, res, next) => {
   }
   next();
 });
-*/
 
 app.set('secretKey', 'tu_clave_secreta_aqui');
 

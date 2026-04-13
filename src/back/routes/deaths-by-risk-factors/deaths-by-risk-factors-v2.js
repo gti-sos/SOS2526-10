@@ -4,6 +4,8 @@ import store from '../../db/deaths-by-risk-factors.js';
 
 import { validateTypes, validateYear, validateRiskFactors } from '../../utils/validators/validateInputs.js';
 
+import { verifyToken } from '../../utils/auth/authMiddelware.js';
+
 const router = express.Router();
 
 const data = [];
@@ -88,7 +90,7 @@ router.get('/deaths-by-risk-factors', (req, res) => {
 });
 
 // Creates a new entry in the data stored in memory for the route
-router.post('/deaths-by-risk-factors', (req, res) => {
+router.post('/deaths-by-risk-factors', verifyToken, (req, res) => {
   const newData = req.body;
 
   const isMissingFields = requiredFields.some(field => newData[field] === null || newData[field] === undefined || newData[field] === "");

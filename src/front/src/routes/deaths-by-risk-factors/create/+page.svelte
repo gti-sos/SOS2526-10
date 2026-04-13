@@ -17,6 +17,8 @@
   let infoMessage = $state('');
 
   async function handleAddResource() {
+    const token = localStorage.getItem("token");
+
     // Construimos el objeto respetando los nombres de tu API
     const newResource = {
       entity,
@@ -31,7 +33,10 @@
     try {
       const res = await fetch(API, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}` 
+        },
         body: JSON.stringify(newResource)
       });
 
