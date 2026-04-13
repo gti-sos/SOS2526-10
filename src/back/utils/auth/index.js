@@ -12,18 +12,28 @@ let userDb = new DataStore({
 
 const router = express.Router();
 
-// Registro
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    
-    userDb.insert({ username, password: hashedPassword }, (err, newUser) => {
-        if (err) return res.status(500).send("Error al registrar");
-        res.status(201).send("Usuario creado");
+
+    userDb.findOne({ username }, async (err, user) => {
+        if (err)
+            return res.status(500).send("Server error");
+        if (user)
+            return res.status(400).send("Username already in use");
+        try {
+            const hashedPassword = await bcrypt.hash(password, 10);
+
+            userDb.insert({ username, password: hashedPassword }, (err, newUser) => {
+                if (err)
+                    return res.status(500).send("Error on sign in");
+                res.status(201).send("New user created");
+            });
+        } catch (error) {
+            return res.status(500).send("Error while parsing the password");
+        }
     });
 });
 
-// Login
 router.post('/login', (req, res) => {
     const { username, password } = req.body;
 
@@ -31,7 +41,7 @@ router.post('/login', (req, res) => {
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.status(401).send("Credenciales inválidas");
         }
-        
+
         const token = jwt.sign({ username: user.username }, SECRET_KEY, { expiresIn: '1h' });
         res.json({ token });
     });

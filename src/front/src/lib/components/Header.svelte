@@ -21,7 +21,7 @@
             <a href="/register">Registrarse</a>
         {:else}
             <span>Bienvenido, {$username}</span>
-            <button on:click={ logout }>Cerrar sesión</button>
+            <button onclick={ logout }>Cerrar sesión</button>
         {/if}
     </nav>
 </header>
