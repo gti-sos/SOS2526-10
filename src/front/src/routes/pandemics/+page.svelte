@@ -30,7 +30,17 @@ async function loadPandemics() {
       if (searchCode !== "")   url += `&code=${encodeURIComponent(searchCode)}`;
       if (searchFrom !== "")   url += `&from=${searchFrom}`;
       if (searchTo !== "")     url += `&to=${searchTo}`;
-      // ... (el resto de tus filtros de enfermedades se mantienen igual)
+      
+      // Filtros de enfermedades añadidos a la URL
+      if (searchYaws !== "")         url += `&yaws=${searchYaws}`;
+      if (searchPolio !== "")        url += `&polio=${searchPolio}`;
+      if (searchGuinea !== "")       url += `&guinea_worm=${searchGuinea}`;
+      if (searchRabies !== "")       url += `&rabies=${searchRabies}`;
+      if (searchMalaria !== "")      url += `&malaria=${searchMalaria}`;
+      if (searchHiv !== "")          url += `&hiv_aids=${searchHiv}`;
+      if (searchTuberculosis !== "") url += `&tuberculosis=${searchTuberculosis}`;
+      if (searchSmallpox !== "")     url += `&smallpox=${searchSmallpox}`;
+      if (searchCholera !== "")      url += `&cholera=${searchCholera}`;
 
       const response = await fetch(url);
       const data = await response.json();
