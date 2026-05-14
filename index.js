@@ -64,22 +64,6 @@ app.get("/samples/rm", (req, res) => {
 
 });
 
-/* PROXY PRUEBA PROTEST DINKING
-app.get("/api/proxy/social-drinking", async (req, res) => {
-  try {
-    const response = await fetch(
-      "https://sos2526-25.onrender.com/api/v2/social-drinking-behaviors/"
-    );
-
-    const data = await response.json();
-
-    res.json(data);
-  } catch (err) {
-    res.status(500).json({ error: "Proxy failed" });
-  }
-});
-*/
-
 
 app.use(svelteHandler);
 
